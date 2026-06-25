@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+    /* colors */
+    /* blue */
+    --color-blue-100: #7EA4D7;
+    --color-blue-200: #2C85FC;
+    --color-blue-300: #2266C1;
+    --color-blue-400: #0D284C;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    /* cyan */
+    --color-cyan-100: #2DEBFC;
+    --color-cyan-200: #187D86;
+    --color-cyan-300: #0E474C;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    /* gray */
+    --color-gray-100: #F9FAFC;
+    --color-gray-200: #D3D5D9;
+    --color-gray-300: #93979F;
+    --color-gray-400: #20242C;
+    --color-gray-500: #16181D;
+    --color-gray-600: #14161A;
+    --color-gray-700: #101216;
+    --color-gray-800: #0B0C0F;
+
+    /* font Size Headings */
+    --text-heading-hg: 40px;
+    --text-heading-xl: 32px;
+    --text-heading-lg: 28px;
+    --text-heading-md: 24px;
+    --text-heading-sm: 20px;
+    --text-heading-xs: 16px;
+    --text-heading-line-height: 120%;
+
+    /* font Size Body */
+    --text-body-md: 16px;
+    --text-body-sm: 14px;
+    --text-body-xs: 12px;
+    --text-body-tag: 12px;
+    --text-body-line-height: 150%;
+
+    /* font size action */
+    --text-action-md: 16px;
+    --text-action-sm: 14px;
+
+    /* Font Familiy Heading */
+    --font-heading: 'PT Sans Caption', sans-serif;
+
+    /* Font Family Body */
+    --font-body: 'Inter', sans-serif;
+
+
 }
