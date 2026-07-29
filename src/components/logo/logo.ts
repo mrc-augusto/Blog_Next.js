@@ -1,1 +1,1 @@
-export * from './logo.tsx'
+export * from './logo-component'
