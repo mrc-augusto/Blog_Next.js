@@ -8,11 +8,14 @@ type ActiveLinkProps ={
 
 export function ActiveLink({children, href, ...rest}: ActiveLinkProps) {
   const router = useRouter()
-  const isCurrentPath = router.asPath === href || router.asPath === rest.as; 
+  const currentPath = router.asPath.split("?")[0].split("#")[0]
+  const targetPath = typeof href === "string" ? href : href.pathname ?? ""
+  const isCurrentPath = currentPath === targetPath
 
   return(
     <Link
       href={href}
+      {...rest}
       className={cn(
         "text-action-sm transition-colors hover:text-blue-200",
         isCurrentPath ? "text-blue-200" : "text-gray-100",
