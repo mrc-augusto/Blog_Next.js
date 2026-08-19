@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
+import { PostGridCard } from "./post-grid-cart";
 import { SearchInput } from "@/components/search";
 import { PostCard } from "./post-card";
-import { PostGridCard } from "./post-grid-cart";
+import { useRouter } from "next/router";
 import { allPosts} from "contentlayer/generated";
 import { Inbox } from "lucide-react";
 

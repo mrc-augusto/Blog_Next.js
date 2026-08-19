@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/components/lib/utils";
 import Link, { type LinkProps } from "next/link";
 import { useRouter } from "next/router";
 

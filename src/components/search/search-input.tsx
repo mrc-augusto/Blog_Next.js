@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/components/lib/utils";
 import { CircleX, Search } from "lucide-react";
 import { useRouter } from "next/router";
 import { useCallback } from "react";
