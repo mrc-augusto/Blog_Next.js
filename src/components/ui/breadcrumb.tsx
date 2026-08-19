@@ -1,3 +1,5 @@
+/** biome-ignore-all lint/a11y/useFocusableInteractive: <explanation> */
+/** biome-ignore-all lint/a11y/useSemanticElements: <explanation> */
 import * as React from "react"
 import { Slot } from "radix-ui"
 

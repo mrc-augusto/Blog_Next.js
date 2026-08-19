@@ -10,13 +10,24 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Image from "next/image";
+import { Avatar } from "@/components/avatar";
 
 export default function PostPage() {
   const router = useRouter();
-  const slug = router.query.slug as string;
-  const post = allPosts.find((post) =>
-    post.slug.toLowerCase() === (slug.toLowerCase()),
-  );
+
+  // as tres consts a seguir são para pegar o slug da url e buscar o post correspondente.
+  // elas foram corrigidas depois de um erro que estava ocorrendo ao tentar acessar a página de um post específico.
+  const slugParam = router.query.slug;
+  const slug = typeof slugParam === "string" ? slugParam : undefined;
+  const post = slug
+    ? allPosts.find((post) => post.slug.toLowerCase() === slug)
+    : undefined;
+  
+  // Se o router não estiver pronto, retorna null para evitar renderizar a página antes de ter os dados necessários.
+  if (!router.isReady) return null;
+  if (!post) return <p className="mt-32 text-gray-100">Post não encontrado.</p>;
+
+  const publishedAt = new Date(post?.date ?? '').toLocaleDateString('pt-BR')
 
   return (
     <main className="mt-32 text-gray-100">
@@ -40,16 +51,35 @@ export default function PostPage() {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className='grid grid-cols-1 lg:grid-cols[1fr_300px] gap-6 lg:gap-12 mt-8'>
-        <article className='bg-gray-600 rounded-lg overflow-hidden border-gray-400 border'>
-          <figure className='relative aspect-16/10 w-full overflow-hidden rounded-lg'>
+      <div className="grid grid-cols-1 lg:grid-cols[1fr_300px] gap-6 lg:gap-12 mt-8">
+        <article className="bg-gray-600 rounded-lg overflow-hidden border-gray-400 border">
+          <figure className="relative aspect-16/10 w-full overflow-hidden rounded-lg">
             <Image
-              src={post?.image ?? ''}
-              alt={post?.title ?? ''}
+              src={post?.image}
+              alt={post?.title}
               fill
               className="object-cover"
             />
           </figure>
+
+          <header className="p-4 md:p-6 lg:p-12 pb-0">
+            <h1 className="mb-6 text-balance text-heading-lg md:text-heading-xl lg:text-heading-xl">
+              {post?.title}
+            </h1>
+
+            <Avatar.Container>
+              <Avatar.Image
+                src={post?.author.avatar}
+                alt={post?.title}
+              />
+              <Avatar.Content>
+                <Avatar.Title>{post?.author.name}</Avatar.Title>
+                <Avatar.Description>
+                  Publicado em: <time dateTime={post?.date}>{publishedAt}</time>
+                </Avatar.Description>
+              </Avatar.Content>
+            </Avatar.Container>
+          </header>
         </article>
       </div>
     </main>

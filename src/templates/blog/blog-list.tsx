@@ -14,7 +14,7 @@ export function BlogList() {
 
   const posts = query
     ? allPosts.filter((post) =>
-        post.title.toLocaleLowerCase()?.includes(query.toLocaleLowerCase()),
+        post.title.toLowerCase()?.includes(query.toLowerCase()),
       )
     : allPosts;
 
