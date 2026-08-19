@@ -7,13 +7,13 @@ import type { AppProps } from "next/app";
 const inter = Inter({
   subsets: ['latin'],
   weight:['400', '500'],
-  variable: '--font-body'
+  variable: '--font-body-family'
 })
 
 const ptSansCaption = PT_Sans_Caption({
   subsets: ['latin'],
   weight:['700'],
-  variable: '--font-heading'
+  variable: '--font-heading-family'
 })
 
 
