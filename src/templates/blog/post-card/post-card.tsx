@@ -1,3 +1,4 @@
+import { Avatar } from "@/components/avatar";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -54,14 +55,14 @@ export function PostCard({ slug, title, description, image, date, author }: Post
           <hr className="border-gray-400" />
           
           <div className="flex gap-2 align-center">
-            <Image
-              src={author?.avatar}
-              alt=""
-              width={20}
-              height={20}
-              className="rounded-full border border-blue-200"
-            />
-            <span className='text-body-xs text-gray-300'>{author?.name}</span>
+            <Avatar.Container>
+              <Avatar.Image
+                src={author?.avatar}
+                alt={author?.name}
+                size="xs"
+              />
+              <Avatar.Title>{author?.name}</Avatar.Title>
+            </Avatar.Container>
           </div>
         </div>
       </div>
